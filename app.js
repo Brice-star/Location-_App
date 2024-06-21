@@ -474,7 +474,7 @@ app.get('/dashboard',(req,res)=>{
                         });                      
 
                     }else{
-                        const count = resultats[0].count;
+                        
 
                         connection.query('SELECT COUNT (*) AS countActif FROM bien WHERE id_demarcheur= ? AND statut= ?',[id,'actif'],(erreur,resultats)=>{
                             if(resultats[0].countActif === undefined){
