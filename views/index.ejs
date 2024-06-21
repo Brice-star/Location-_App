@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	
+<!-- Mirrored from themezhub.net/goodup-live/goodup/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Nov 2023 11:33:47 GMT -->
+<head>
+	   <!-- Meta Data -->
+	   <meta charset="UTF-8">
+	   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	   <meta name="viewport" content="width=device-width, initial-scale=1">
+	   <title>Goodup - Business Directory & Listing HTML Template</title>
+
+	   <!-- Favicon -->
+	   <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+		 
+        <!-- Custom CSS -->
+        <link href="assets/css/styles.css" rel="stylesheet">
+		
+    </head>
+	
+    <body>
+	
+		 <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+       <div class="preloader"></div>
+		
+        <!-- ============================================================== -->
+        <!-- Main wrapper - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <div id="main-wrapper">
+		
+            <!-- ============================================================== -->
+            <!-- Top header  -->
+            <!-- ============================================================== -->
+            <!-- Start Navigation -->
+
+			<%- include('./partials/header') %>
+
+			
+			<!-- End Navigation -->
+			<div class="clearfix"></div>
+			<!-- ============================================================== -->
+			<!-- Top header  -->
+			<!-- ============================================================== -->
+			
+			<!-- ======================= Home Banner ======================== -->
+			<div class="home-banner margin-bottom-0" style="background:#f41b3b url(assets/img/banner.jpg) no-repeat;" data-overlay="4">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-xl-11 col-lg-12 col-md-12 col-sm-12 col-12">
+							<div class="banner_caption text-center mb-5">
+								<h1 class="banner_title ft-bold mb-1">Trouve la chambre de tes reves</h1>
+								<p class="fs-md ft-medium">Tu recherches ton appartement de reve ? Tu es au bon endroit.</p>
+							</div>
+							
+							<form class="main-search-wrap fl-wrap" method="POST" action="rechercher">
+								<div class="main-search-item">
+
+									<select name="pays" class="form-control" required>
+										<option value="">Pays</option>
+										<option value="Benin">Benin</option>
+										<option value="Burkina Faso ">Burkina Faso</option>
+										<option value="Cote d'ivoire">Cote d'ivoire</option>
+										<option value="Cameroun">Cameroun</option>
+										<option value="Niger">Niger</option>
+										<option value="Togo">Togo</option>
+										<option value="Tchad">Tchad</option>
+										<option value="Senegal">Senegal</option>
+									</select>
+								</div>
+
+								<div class="main-search-item">
+									<input type="text" name="quartier" class="form-control" placeholder="Ville/quartier" required/>
+								</div>
+
+								<div class="main-search-item">
+									<select name="categorie" class="form-control" required>
+										<option value="Tout">Categorie</option>
+										<option value="Studio">Studio</option>
+										<option value="1 chambres + Salon">1 chambres + Salon</option>
+										<option value="2 chambres + salon">2 chambres + salon</option>
+										<option value="Maison personnelle">Maison personnelle</option>
+										<option value="Appartement meublé climatisé">Appartement meublé climatisé</option>
+										<option value="Appartement meublé ventilé">Appartement meublé ventilé</option>
+										<option value="Autre">Autre</option>
+									</select>
+								</div>
+								<div class="main-search-button">
+									
+									<button class="btn theme-bg rounded text-light"><i class="fas fa-search"></i>Chercher</button>
+								
+									
+								</div>
+							</form>
+							
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ======================= Home Banner ======================== -->
+			
+			<!-- =========================== Listing Category 
+			<section class="gray middle min">
+				<div class="container">
+				
+					<div class="row">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-12">
+							<div class="sec_title position-relative text-center mb-5">
+								<h6 class="text-muted mb-0">Trending Categories</h6>
+								<h2 class="ft-bold">Find the Best Businesses in Town</h2>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row align-items-center">
+						
+						<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+							<div class="Goodup-img-catg-wrap">
+								<div class="Goodup-catg-city">12 Cities</div>
+								<div class="Goodup-img-catg-thumb"><a href="half-map-search-1.html"><img src="assets/img/c-1.jpg" class="img-fluid" alt=""></a></div>
+								<div class="Goodup-img-catg-caption">
+									<h4 class="fs-md mb-0 ft-medium m-catrio">Dentists</h4>
+									<a href="listing-search-v1.html" class="Goodup-cat-arrow"><i class="lni lni-arrow-right-circle"></i></a>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+							<div class="Goodup-img-catg-wrap">
+								<div class="Goodup-catg-city">14 Cities</div>
+								<div class="Goodup-img-catg-thumb"><a href="half-map-search-1.html"><img src="assets/img/c-2.jpg" class="img-fluid" alt=""></a></div>
+								<div class="Goodup-img-catg-caption">
+									<h4 class="fs-md mb-0 ft-medium m-catrio">Dry Cleaning</h4>
+									<a href="listing-search-v1.html" class="Goodup-cat-arrow"><i class="lni lni-arrow-right-circle"></i></a>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+							<div class="Goodup-img-catg-wrap">
+								<div class="Goodup-catg-city">32 Cities</div>
+								<div class="Goodup-img-catg-thumb"><a href="half-map-search-1.html"><img src="assets/img/c-3.jpg" class="img-fluid" alt=""></a></div>
+								<div class="Goodup-img-catg-caption">
+									<h4 class="fs-md mb-0 ft-medium m-catrio">Spa & Massage</h4>
+									<a href="listing-search-v1.html" class="Goodup-cat-arrow"><i class="lni lni-arrow-right-circle"></i></a>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+							<div class="Goodup-img-catg-wrap">
+								<div class="Goodup-catg-city">19 Cities</div>
+								<div class="Goodup-img-catg-thumb"><a href="half-map-search-1.html"><img src="assets/img/c-4.jpg" class="img-fluid" alt=""></a></div>
+								<div class="Goodup-img-catg-caption">
+									<h4 class="fs-md mb-0 ft-medium m-catrio">Home Services</h4>
+									<a href="listing-search-v1.html" class="Goodup-cat-arrow"><i class="lni lni-arrow-right-circle"></i></a>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+			</section>
+			 Listing Category End ===================== -->
+			
+
+			<!-- ===========================  Featured Listing ======================= -->
+			<section class="space min">
+				<div class="container">
+				
+					<div class="row">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-12">
+							<div class="sec_title position-relative text-center mb-5">
+								<h2 class="ft-bold theme-cl">Chambres à louer</h2>
+							</div>
+						</div>
+					</div>
+					
+					<!-- row -->
+					<div class="row justify-content-center">
+					
+						<!-- Single -->
+						<% for(i=0; i<resultats.length; i++){ %>
+
+							<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+								<div class="Goodup-grid-wrap">
+									<div class="Goodup-grid-upper">
+										<!-- <div class="Goodup-bookmark-btn"><button type="button"><i class="lni lni-heart-filled position-absolute"></i></button></div> -->
+										<div class="Goodup-pos ab-left">
+											<% if (resultats[i].statut === 'actif') { %>
+												<div class="Goodup-status open me-2"><%= resultats[i].statut %></div>
+											<% } else { %>
+												<div class="Goodup-featured-tag"><%= resultats[i].statut %></div>
+											<% } %>
+											
+											
+										</div>
+										<div class="Goodup-grid-thumb">
+											<a href="single-listing-detail-1.html" class="d-block text-center m-auto"><img src="pics/<%= resultats[i].photo %>" class="img-fluid" alt="" /></a>
+										</div>
+									</div>
+									<div class="Goodup-grid-fl-wrap">
+										<div class="Goodup-caption px-3 py-2">
+											<div class="Goodup-author"><a href="author-detail.html"><img src="pics/<%= resultats[i].photo_demarcheur %>" class="img-fluid circle" alt="" /></a></div>
+											<div class="Goodup-cates"><a href="half-map-search-1.html"><%= resultats[i].nom_demarcheur %></a></div>
+											<h4 class="mb-0 ft-medium medium"><a href="single-listing-detail-1.html" class="text-dark fs-md"><%= resultats[i].typee %><span class="verified-badge"><i class="fas fa-check-circle"></i></span></a></h4>
+											<div class="Goodup-middle-caption mt-3">
+												<div class="Goodup-location"><i class="fas fa-map-marker-alt"></i><%= resultats[i].pays+', '+resultats[i].quartier %></div>
+												<div class="Goodup-call"><i class="fas fa-phone-alt"></i><%= resultats[i].numéro %></div>
+											</div>
+										</div>
+										<div class="Goodup-grid-footer py-3 px-3">
+											<div class="Goodup-ft-first">
+												<div class="Goodup-rating">
+													<div class="Goodup-pr-average high"><a href="" style="color:white">Voir</a></div>
+												</div>
+												
+											</div>
+											<div class="Goodup-ft-last">
+												<span class="small">publié le <%= resultats[i].date_pub %></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						<% } %>
+
+
+						
+						
+						
+					</div>
+					<!-- /row -->
+					
+				</div>
+			</section>
+			<!-- =========================== Featured Listing End ===================== -->
+			
+			
+			<!-- =========================== Price Box ======================= -->
+			<section class="bg-dark space min">
+				<div class="container">
+				
+					<div class="row">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-12">
+							<div class="sec_title position-relative text-center mb-5">
+								<h6 class="text-muted mb-0 text-light">Choose Package</h6>
+								<h2 class="ft-bold text-light">Choose Your Goods Plan</h2>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row justify-content-center">
+					
+						<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+								<div class="Goodup-price-wrap dark-price">
+									<div class="Goodup-author-header">
+										<div class="Goodup-price-currency">
+											<h3><span class="Goodup-new-price">$<del>49</del></span><span class="Goodup-old-price">$<del>149</del></span></h3>
+										</div>
+										<div class="Goodup-price-title">
+											<div class="Goodup-price-tlt"><h4>Personal</h4></div><div class="Goodup-price-ribbon"><span class="Goodup-ribbon-offer all">50% Off</span></div>
+										</div>
+										<div class="Goodup-price-subtitle">Best Choice for Individuals </div>
+									</div>
+									<div class="Goodup-price-body">
+										<ul class="price__features">
+											<li><i class="fa fa-angle-right"></i>Lifetime Bandwidth Usage</li>
+											<li><i class="fa fa-angle-right"></i>6 Months Support & Updates</li>
+											<li><i class="fa fa-angle-right"></i>10 Website License</li>
+											<li><i class="fa fa-angle-right"></i>Quickstart Included</li>
+											<li><i class="fa fa-angle-right"></i>Access to Plugins & Theme</li>
+											<li><i class="fa fa-angle-right"></i>Branding/Copyright Removal</li>
+										</ul>
+									</div>
+									<div class="Goodup-price-bottom">
+										<a class="Goodup-price-btn" href="#"><i class="fas fa-shopping-basket"></i> Purchase Now</a>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+								<div class="Goodup-price-wrap">
+									<div class="Goodup-author-header">
+										<div class="Goodup-price-currency">
+											<h3><span class="Goodup-new-price theme-cl">$<del>129</del></span><span class="Goodup-old-price">$<del>199</del></span></h3>
+										</div>
+										<div class="Goodup-price-title">
+											<div class="Goodup-price-tlt"><h4>Platinum</h4></div><div class="Goodup-price-ribbon"><span class="Goodup-ribbon-offer">50% Off</span></div>
+										</div>
+										<div class="Goodup-price-subtitle">Best Choice for Individuals </div>
+									</div>
+									<div class="Goodup-price-body">
+										<ul class="price__features">
+											<li><i class="fa fa-angle-right"></i>Lifetime Bandwidth Usage</li>
+											<li><i class="fa fa-angle-right"></i>12 Months Support & Updates</li>
+											<li><i class="fa fa-angle-right"></i>20 Website License</li>
+											<li><i class="fa fa-angle-right"></i>Quickstart Included</li>
+											<li><i class="fa fa-angle-right"></i>Access to Plugins & Theme</li>
+											<li><i class="fa fa-angle-right"></i>Branding/Copyright Removal</li>
+										</ul>
+									</div>
+									<div class="Goodup-price-bottom">
+										<a class="Goodup-price-btn active" href="#"><i class="fas fa-shopping-basket"></i> Purchase Now</a>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+								<div class="Goodup-price-wrap dark-price">
+									<div class="Goodup-author-header">
+										<div class="Goodup-price-currency">
+											<h3><span class="Goodup-new-price">$<del>149</del></span><span class="Goodup-old-price">$<del>249</del></span></h3>
+										</div>
+										<div class="Goodup-price-title">
+											<div class="Goodup-price-tlt"><h4>Standard</h4></div><div class="Goodup-price-ribbon"><span class="Goodup-ribbon-offer all">50% Off</span></div>
+										</div>
+										<div class="Goodup-price-subtitle">Best Choice for Individuals </div>
+									</div>
+									<div class="Goodup-price-body">
+										<ul class="price__features">
+											<li><i class="fa fa-angle-right"></i>Lifetime Bandwidth Usage</li>
+											<li><i class="fa fa-angle-right"></i>Lifetime Support & Updates</li>
+											<li><i class="fa fa-angle-right"></i>50 Website License</li>
+											<li><i class="fa fa-angle-right"></i>Quickstart Included</li>
+											<li><i class="fa fa-angle-right"></i>Access to Plugins & Theme</li>
+											<li><i class="fa fa-angle-right"></i>Branding/Copyright Removal</li>
+										</ul>
+									</div>
+									<div class="Goodup-price-bottom">
+										<a class="Goodup-price-btn" href="#"><i class="fas fa-shopping-basket"></i> Purchase Now</a>
+									</div>
+								</div>
+							</div>
+						
+					</div>
+					
+				</div>
+			</section>
+			<!-- ===========================  Price Box End ===================== -->
+			
+			<!-- =========================== FAQ Start ======================= -->
+			<section>
+				<div class="container">
+				
+					<div class="row">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-12">
+							<div class="sec_title position-relative text-center mb-5">
+								<h6 class="text-muted mb-0">Ask Questions</h6>
+								<h2 class="ft-bold">Frequently Asked Questions</h2>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row justify-content-center">
+						<div class="col-xl-10 col-lg-11 col-md-12 col-12">
+							<div id="accordion2" class="accordion">
+								<div class="card">
+									<div class="card-header" id="h7">
+									  <h5 class="mb-0">
+										<button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#ord7" aria-expanded="true" aria-controls="ord7">
+											Can I get GoodUP listing for free?
+										</button>
+									  </h5>
+									</div>
+
+									<div id="ord7" class="collapse show" aria-labelledby="h7" data-parent="#accordion2">
+									  <div class="card-body">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+									  </div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header" id="h8">
+									  <h5 class="mb-0">
+										<button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#ord8" aria-expanded="false" aria-controls="ord8">
+											How to Permanently Delete Files From Windows?
+										</button>
+									  </h5>
+									</div>
+									<div id="ord8" class="collapse" aria-labelledby="h8" data-parent="#accordion2">
+									  <div class="card-body">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+									  </div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header" id="h9">
+									  <h5 class="mb-0">
+										<button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#ord9" aria-expanded="false" aria-controls="ord9">
+											Can I get GoodUP listing for free?
+										</button>
+									  </h5>
+									</div>
+									<div id="ord9" class="collapse" aria-labelledby="h9" data-parent="#accordion2">
+									  <div class="card-body">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+									  </div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header" id="h4">
+									  <h5 class="mb-0">
+										<button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#ord4" aria-expanded="false" aria-controls="ord4">
+											For GoodUp which lisence is better for business purpose?
+										</button>
+									  </h5>
+									</div>
+
+									<div id="ord4" class="collapse" aria-labelledby="h4" data-parent="#accordion2">
+									  <div class="card-body">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+									  </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</section>
+			<!-- =========================== FAQ End ===================== -->
+			
+			
+			<!-- ======================= Newsletter Start ============================ -->
+			<section class="space bg-cover" style="background:#f41b3b url(assets/img/landing-bg.png) no-repeat;">
+				<div class="container py-5">
+					
+					<div class="row justify-content-center">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+							<div class="sec_title position-relative text-center mb-5">
+								<h6 class="text-light mb-0">Subscribr Now</h6>
+								<h2 class="ft-bold text-light">Get All Updates & Advance Offers</h2>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row align-items-center justify-content-center">
+						<div class="col-xl-7 col-lg-10 col-md-12 col-sm-12 col-12">
+							<form class="bg-white rounded p-1">
+								<div class="row no-gutters">
+									<div class="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-8">
+										<div class="form-group mb-0 position-relative">
+											<input type="text" class="form-control b-0" placeholder="Enter Your Email Address">
+										</div>
+									</div>
+									<div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-4">
+										<div class="form-group mb-0 position-relative">
+											<button class="btn full-width btn-height bg-dark text-white fs-md" type="button">Subscribe</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					
+				</div>
+			</section>
+			<!-- ======================= Newsletter Start ============================ -->
+			
+			<!-- ============================ Footer Start ================================== -->
+			<footer class="light-footer skin-light-footer style-2">
+				<div class="footer-middle">
+					<div class="container">
+						<div class="row">
+							
+							<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+								<div class="footer_widget">
+									<img src="assets/img/logo.png" class="img-footer small mb-2" alt="" />
+									
+									<div class="address mt-2">
+										7742 Sadar Street Range Road, USA<br>United Kingdom GHQ11	
+									</div>
+									<div class="address mt-3">
+										40 568 423 6597<br>support@Goodup.com
+									</div>
+									<div class="address mt-2">
+										<ul class="list-inline">
+											<li class="list-inline-item"><a href="#" class="theme-cl"><i class="lni lni-facebook-filled"></i></a></li>
+											<li class="list-inline-item"><a href="#" class="theme-cl"><i class="lni lni-twitter-filled"></i></a></li>
+											<li class="list-inline-item"><a href="#" class="theme-cl"><i class="lni lni-youtube"></i></a></li>
+											<li class="list-inline-item"><a href="#" class="theme-cl"><i class="lni lni-instagram-filled"></i></a></li>
+											<li class="list-inline-item"><a href="#" class="theme-cl"><i class="lni lni-linkedin-original"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-xl-2 col-lg-2 col-md-2 col-sm-12">
+								<div class="footer_widget">
+									<h4 class="widget_title">Main Navigation</h4>
+									<ul class="footer-menu">
+										<li><a href="#">Explore Listings</a></li>
+										<li><a href="#">Browse Authors</a></li>
+										<li><a href="#">Submit Listings</a></li>
+										<li><a href="#">Shortlisted</a></li>
+										<li><a href="#">Dashboard</a></li>
+									</ul>
+								</div>
+							</div>
+									
+							<div class="col-xl-2 col-lg-2 col-md-2 col-sm-12">
+								<div class="footer_widget">
+									<h4 class="widget_title">Business Owners</h4>
+									<ul class="footer-menu">
+										<li><a href="#">Browse Categories</a></li>
+										<li><a href="#">Payment Links</a></li>
+										<li><a href="#">Saved Places</a></li>
+										<li><a href="#">Dashboard</a></li>
+									</ul>
+								</div>
+							</div>
+					
+							<div class="col-xl-2 col-lg-2 col-md-2 col-sm-12">
+								<div class="footer_widget">
+									<h4 class="widget_title">About Company</h4>
+									<ul class="footer-menu">
+										<li><a href="#">Who We'r?</a></li>
+										<li><a href="#">Our Mission</a></li>
+										<li><a href="#">Our team</a></li>
+										<li><a href="#">Packages</a></li>
+										<li><a href="#">Dashboard</a></li>
+									</ul>
+								</div>
+							</div>
+							
+							<div class="col-xl-2 col-lg-2 col-md-2 col-sm-12">
+								<div class="footer_widget">
+									<h4 class="widget_title">Helpful Topics</h4>
+									<ul class="footer-menu">
+										<li><a href="#">Site Map</a></li>
+										<li><a href="#">Security</a></li>
+										<li><a href="#">Contact</a></li>
+										<li><a href="#">FAQ's Page</a></li>
+										<li><a href="#">Privacy</a></li>
+									</ul>
+								</div>
+							</div>
+								
+						</div>
+					</div>
+				</div>
+				
+				<div class="footer-bottom br-top">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-lg-12 col-md-12 text-center">
+								<p class="mb-0">© 2022 Goodup. Designd By <a href="https://themezhub.com/">ThemezHub</a>.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- ============================ Footer End ================================== -->
+			
+			<!-- Log In Modal -->
+			<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginmodal" aria-hidden="true">
+				<div class="modal-dialog login-pop-form" role="document">
+					<div class="modal-content" id="loginmodal">
+						<div class="modal-headers">
+							<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+							  <span class="ti-close"></span>
+							</button>
+						  </div>
+					
+						<div class="modal-body p-5">
+							<div class="text-center mb-4">
+								<h4 class="m-0 ft-medium">Authentification</h4>
+							</div>
+							
+							<form class="submit-form" method="POST" action="login">				
+								<div class="form-group">
+									<label class="mb-1">Adresse e-mail</label>
+									<input type="email" class="form-control rounded bg-light" name="mail" required placeholder="Adresse e-mail*">
+								</div>
+								
+								<div class="form-group">
+									<label class="mb-1">Mot de passe</label>
+									<input type="password" class="form-control rounded bg-light" name="password" required placeholder="Mot de passe*">
+								</div>
+								
+								<div class="form-group">
+									<div class="d-flex align-items-center justify-content-between">
+										<div class="flex-1">
+											<input id="dd" class="checkbox-custom" name="dd" type="checkbox" checked>
+											<label for="dd" class="checkbox-custom-label">Se souvenir de moi</label>
+										</div>	
+										<div class="eltio_k2">
+											<a href="#" class="theme-cl">Mot de passe oublié?</a>
+										</div>	
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<button type="submit" name="login" class="btn btn-md full-width theme-bg text-light rounded ft-medium">Connexion</button>
+								</div>
+								
+								<div class="form-group text-center mb-0">
+									<p class="extra">Vous n'avez pas de compte ?</p><a href="signin" class="theme-cl">Cliquez ici</a>
+								<!-- 	<div class="option-log">
+										<div class="single-log-opt"><a href="javascript:void(0);" class="log-btn"><img src="assets/img/c-1.png" class="img-fluid" alt="" />Login with Google</a></div>
+										<div class="single-log-opt"><a href="javascript:void(0);" class="log-btn"><img src="assets/img/facebook.png" class="img-fluid" alt="" />Login with Facebook</a></div>
+									</div> -->
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Modal -->
+			
+			<a id="tops-button" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
+			
+
+		</div>
+		<!-- ============================================================== -->
+		<!-- End Wrapper -->
+		<!-- ============================================================== -->
+
+		<!-- ============================================================== -->
+		<!-- All Jquery -->
+		<!-- ============================================================== -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/popper.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/slick.js"></script>
+		<script src="assets/js/jquery.magnific-popup.min.js"></script>
+		<script src="assets/js/dropzone.js"></script>
+		<script src="assets/js/counterup.js"></script>
+		<script src="assets/js/lightbox.js"></script>
+		<script src="assets/js/moment.min.js"></script>
+		<script src="assets/js/daterangepicker.js"></script>
+		<script src="assets/js/lightbox.js"></script>		
+		<script src="assets/js/jQuery.style.switcher.js"></script>
+		<script src="assets/js/custom.js"></script>
+		<!-- ============================================================== -->
+		<!-- This page plugins -->
+		<!-- ============================================================== -->			
+
+	</body>
+
+<!-- Mirrored from themezhub.net/goodup-live/goodup/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Nov 2023 11:33:50 GMT -->
+</html>

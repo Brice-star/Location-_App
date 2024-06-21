@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	
+<!-- Mirrored from themezhub.net/goodup-live/goodup/dashboard-my-listings.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Nov 2023 11:36:12 GMT -->
+<head>
+	   <!-- Meta Data -->
+	   <meta charset="UTF-8">
+	   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	   <meta name="viewport" content="width=device-width, initial-scale=1">
+	   <title>Goodup - Business Directory & Listing HTML Template</title>
+
+	   <!-- Favicon -->
+	   <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+		 
+        <!-- Custom CSS -->
+        <link href="assets/css/styles.css" rel="stylesheet">
+		
+    </head>
+	
+    <body>
+	
+		 <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+       <div class="preloader"></div>
+		
+        <!-- ============================================================== -->
+        <!-- Main wrapper - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <div id="main-wrapper">
+		
+            <!-- ============================================================== -->
+            <!-- Top header  -->
+            <!-- ============================================================== -->
+            <!-- Start Navigation -->
+			<%- include ('./partials/header_connecté')%>
+			<!-- End Navigation -->
+			<div class="clearfix"></div>
+			<!-- ============================================================== -->
+			<!-- Top header  -->
+			<!-- ============================================================== -->
+			
+			<!-- =============================== Dashboard Header ========================== -->
+			<%- include ('./partials/cover')%>
+			<!-- =============================== Dashboard Header ========================== -->
+			
+			<!-- ======================= dashboard Detail ======================== -->
+			<div class="goodup-dashboard-wrap gray px-4 py-5">
+				<a class="mobNavigation" data-bs-toggle="collapse" href="#MobNav" role="button" aria-expanded="false" aria-controls="MobNav">
+					<i class="fas fa-bars me-2"></i>Dashboard Navigation
+				</a>
+				<div class="collapse" id="MobNav">
+					<div class="goodup-dashboard-nav sticky-top">
+						<div class="goodup-dashboard-inner">
+							<ul data-submenu-title="Menu">
+								<li><a href="dashboard"><i class="lni lni-dashboard me-2"></i>Tableau de bord</a></li>
+								<li class="active"><a href="mes_biens"><i class="lni lni-files me-2"></i>Mes biens immobiliers</a></li>
+								<li><a href="ajouter_bien_immobilier"><i class="lni lni-add-files me-2"></i>Publier un bien immobilier</a></li> <!-- 
+								<li><a href="dashboard-saved-listings.html"><i class="lni lni-bookmark me-2"></i>Saved Listing</a></li>
+								<li><a href="dashboard-my-bookings.html"><i class="lni lni-briefcase me-2"></i>My Bookings<span class="count-tag bg-warning">4</span></a></li>
+								<li><a href="dashboard-wallet.html"><i class="lni lni-mastercard me-2"></i>Wallet</a></li>
+								<li><a href="dashboard-messages.html"><i class="lni lni-envelope me-2"></i>Messages<span class="count-tag">4</span></a></li> -->
+							</ul>
+							<ul data-submenu-title="Mon compte">
+								<li><a href="mon_profil"><i class="lni lni-user me-2"></i>Mon Profil </a></li>
+								<li><a href="changer_motdepasse"><i class="lni lni-lock-alt me-2"></i>Changer de mot de passe</a></li>
+								<li><a href="javascript:void(0);"><i class="lni lni-trash-can me-2"></i>Supprimer le compte</a></li>
+								<li><a href="logout"><i class="lni lni-power-switch me-2"></i>Deconnexion</a></li>
+							</ul>
+						</div>				
+					</div>
+				</div>
+				<!-- -->
+				<div class="goodup-dashboard-content">
+					<div class="dashboard-tlbar d-block mb-5">
+						<div class="row"> <!-- 
+							<div class="colxl-12 col-lg-12 col-md-12">
+								<h1 class="ft-medium">Manage Listings</h1>
+								<nav aria-label="breadcrumb">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item text-muted"><a href="#">Home</a></li>
+										<li class="breadcrumb-item text-muted"><a href="#">Dashboard</a></li>
+										<li class="breadcrumb-item"><a href="#" class="theme-cl">Manage Listings</a></li>
+									</ol>
+								</nav>
+							</div> -->
+						</div>
+					</div>
+					
+					<div class="dashboard-widg-bar d-block">
+						<div class="row">
+							<div class="col-xl-12 col-lg-12">
+								<div class="dashboard-list-wraps bg-white rounded mb-4">
+									<div class="dashboard-list-wraps-head br-bottom py-3 px-3">
+										<div class="dashboard-list-wraps-flx">
+											<h4 class="mb-0 ft-medium fs-md"><i class="fa fa-file-alt me-2 theme-cl fs-sm"></i>Mes publications</h4>	
+										</div>
+									</div>
+									
+									<div class="dashboard-list-wraps-body py-3 px-3">
+										<div class="dashboard-listing-wraps">
+
+											<h3>
+												<!-- Si resultats est un tableau null ou est un tableau vide,
+													 cela veut dire que le systeme ne trouve aucune pub appartenant au user
+													 connecté, dans la BDD. Et donc le user connecté n'a fait aucune pub -->
+												<% if (!resultats || resultats.length === 0) { %>
+
+													<p style="color: red;">Aucune publication</p>
+
+												  <% } else { %> <!-- Si non alors on affiche les pubs du user connecté-->
+
+													<!-- Single Listing Item -->
+													<% for(i=0; i<resultats.length; i++){ %>
+
+														<div class="dsd-single-listing-wraps">
+															<div class="dsd-single-lst-thumb"><img src="pics/<%= resultats[i].photo %>" class="img-fluid" alt="" /></div>	
+															<div class="dsd-single-lst-caption">
+																<div class="dsd-single-lst-title"><h5><%= resultats[i].typee %></h5></div>
+																<span class="agd-location"><i class="lni lni-map-marker me-1"></i><%= resultats[i].pays + ', '+resultats[i].quartier  %></span>
+																<div class="ico-content">
+																	<div class="Goodup-ft-first">
+																		<div class="Goodup-rating">
+																			<div class="Goodup-rates">
+																				<i class="fas fa-star"></i>
+																				<i class="fas fa-star"></i>
+																				<i class="fas fa-star"></i>
+																				<i class="fas fa-star"></i>
+																				<i class="fas fa-star"></i>
+																			</div>
+																		</div>
+																		<div class="Goodup-price-range">
+																			<span class="ft-medium"><%= resultats[i].statut %></span>
+																		</div>
+																	</div>	
+																</div>
+																<div class="dsd-single-lst-footer">
+																	<a href="javascript:void(0);" class="btn btn-edit mr-1"><i class="fas fa-edit me-1"></i>Edit</a>
+																	<a href="javascript:void(0);" class="btn btn-view mr-1"><i class="fas fa-eye me-1"></i>View</a>
+																	<a href="javascript:void(0);" class="btn btn-delete"><i class="fas fa-trash me-1"></i>Delete</a>
+																</div>
+															</div>
+														</div>
+										
+													<% } %>
+												<% } %>
+												  
+											</h3>
+											
+											
+
+
+											
+											<!-- Single Listing Item 
+											<div class="dsd-single-listing-wraps">
+												<div class="dsd-single-lst-thumb"><img src="assets/img/listing/l-2.jpg" class="img-fluid" alt="" /></div>	
+												<div class="dsd-single-lst-caption">
+													<div class="dsd-single-lst-title"><h5>Decathlon Sport House</h5></div>
+													<span class="agd-location"><i class="lni lni-map-marker me-1"></i>San Francisco, USA</span>
+													<div class="ico-content">
+														<div class="Goodup-ft-first">
+															<div class="Goodup-rating">
+																<div class="Goodup-rates">
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																</div>
+															</div>
+															<div class="Goodup-price-range">
+																<span class="ft-medium">34 Reviews</span>
+															</div>
+														</div>	
+													</div>
+													<div class="dsd-single-lst-footer">
+														<a href="javascript:void(0);" class="btn btn-edit mr-1"><i class="fas fa-edit me-1"></i>Edit</a>
+														<a href="javascript:void(0);" class="btn btn-view mr-1"><i class="fas fa-eye me-1"></i>View</a>
+														<a href="javascript:void(0);" class="btn btn-delete"><i class="fas fa-trash me-1"></i>Delete</a>
+													</div>
+												</div>
+											</div> -->
+											
+											<!-- Single Listing Item 
+											<div class="dsd-single-listing-wraps">
+												<div class="dsd-single-lst-thumb"><img src="assets/img/listing/l-3.jpg" class="img-fluid" alt="" /></div>	
+												<div class="dsd-single-lst-caption">
+													<div class="dsd-single-lst-title"><h5>The Gold Hotel Lalit</h5></div>
+													<span class="agd-location"><i class="lni lni-map-marker me-1"></i>San Francisco, USA</span>
+													<div class="ico-content">
+														<div class="Goodup-ft-first">
+															<div class="Goodup-rating">
+																<div class="Goodup-rates">
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																</div>
+															</div>
+															<div class="Goodup-price-range">
+																<span class="ft-medium">34 Reviews</span>
+															</div>
+														</div>	
+													</div>
+													<div class="dsd-single-lst-footer">
+														<a href="javascript:void(0);" class="btn btn-edit mr-1"><i class="fas fa-edit me-1"></i>Edit</a>
+														<a href="javascript:void(0);" class="btn btn-view mr-1"><i class="fas fa-eye me-1"></i>View</a>
+														<a href="javascript:void(0);" class="btn btn-delete"><i class="fas fa-trash me-1"></i>Delete</a>
+													</div>
+												</div>
+											</div> -->
+											
+											<!-- Single Listing Item 
+											<div class="dsd-single-listing-wraps">
+												<div class="dsd-single-lst-thumb"><img src="assets/img/listing/l-4.jpg" class="img-fluid" alt="" /></div>	
+												<div class="dsd-single-lst-caption">
+													<div class="dsd-single-lst-title"><h5>Fitness Revolution Gym</h5></div>
+													<span class="agd-location"><i class="lni lni-map-marker me-1"></i>San Francisco, USA</span>
+													<div class="ico-content">
+														<div class="Goodup-ft-first">
+															<div class="Goodup-rating">
+																<div class="Goodup-rates">
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																</div>
+															</div>
+															<div class="Goodup-price-range">
+																<span class="ft-medium">34 Reviews</span>
+															</div>
+														</div>	
+													</div>
+													<div class="dsd-single-lst-footer">
+														<a href="javascript:void(0);" class="btn btn-edit mr-1"><i class="fas fa-edit me-1"></i>Edit</a>
+														<a href="javascript:void(0);" class="btn btn-view mr-1"><i class="fas fa-eye me-1"></i>View</a>
+														<a href="javascript:void(0);" class="btn btn-delete"><i class="fas fa-trash me-1"></i>Delete</a>
+													</div>
+												</div>
+											</div> -->
+											
+											<!-- Single Listing Item 
+											<div class="dsd-single-listing-wraps">
+												<div class="dsd-single-lst-thumb"><img src="assets/img/listing/l-5.jpg" class="img-fluid" alt="" /></div>	
+												<div class="dsd-single-lst-caption">
+													<div class="dsd-single-lst-title"><h5>Pretty Woman Smart Batra</h5></div>
+													<span class="agd-location"><i class="lni lni-map-marker me-1"></i>San Francisco, USA</span>
+													<div class="ico-content">
+														<div class="Goodup-ft-first">
+															<div class="Goodup-rating">
+																<div class="Goodup-rates">
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																</div>
+															</div>
+															<div class="Goodup-price-range">
+																<span class="ft-medium">34 Reviews</span>
+															</div>
+														</div>	
+													</div>
+													<div class="dsd-single-lst-footer">
+														<a href="javascript:void(0);" class="btn btn-edit mr-1"><i class="fas fa-edit me-1"></i>Edit</a>
+														<a href="javascript:void(0);" class="btn btn-view mr-1"><i class="fas fa-eye me-1"></i>View</a>
+														<a href="javascript:void(0);" class="btn btn-delete"><i class="fas fa-trash me-1"></i>Delete</a>
+													</div>
+												</div>
+											</div> -->
+											
+											<!-- Single Listing Item 
+											<div class="dsd-single-listing-wraps">
+												<div class="dsd-single-lst-thumb"><img src="assets/img/listing/l-6.jpg" class="img-fluid" alt="" /></div>	
+												<div class="dsd-single-lst-caption">
+													<div class="dsd-single-lst-title"><h5>The Sartaj Blue Night</h5></div>
+													<span class="agd-location"><i class="lni lni-map-marker me-1"></i>San Francisco, USA</span>
+													<div class="ico-content">
+														<div class="Goodup-ft-first">
+															<div class="Goodup-rating">
+																<div class="Goodup-rates">
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																</div>
+															</div>
+															<div class="Goodup-price-range">
+																<span class="ft-medium">34 Reviews</span>
+															</div>
+														</div>	
+													</div>
+													<div class="dsd-single-lst-footer">
+														<a href="javascript:void(0);" class="btn btn-edit mr-1"><i class="fas fa-edit me-1"></i>Edit</a>
+														<a href="javascript:void(0);" class="btn btn-view mr-1"><i class="fas fa-eye me-1"></i>View</a>
+														<a href="javascript:void(0);" class="btn btn-delete"><i class="fas fa-trash me-1"></i>Delete</a>
+													</div>
+												</div>
+											</div> -->
+											
+											<!-- Single Listing Item 
+											<div class="dsd-single-listing-wraps">
+												<div class="dsd-single-lst-thumb"><img src="assets/img/listing/l-8.jpg" class="img-fluid" alt="" /></div>	
+												<div class="dsd-single-lst-caption">
+													<div class="dsd-single-lst-title"><h5>The Great Allante Shop</h5></div>
+													<span class="agd-location"><i class="lni lni-map-marker me-1"></i>San Francisco, USA</span>
+													<div class="ico-content">
+														<div class="Goodup-ft-first">
+															<div class="Goodup-rating">
+																<div class="Goodup-rates">
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star"></i>
+																</div>
+															</div>
+															<div class="Goodup-price-range">
+																<span class="ft-medium">34 Reviews</span>
+															</div>
+														</div>	
+													</div>
+													<div class="dsd-single-lst-footer">
+														<a href="javascript:void(0);" class="btn btn-edit mr-1"><i class="fas fa-edit me-1"></i>Edit</a>
+														<a href="javascript:void(0);" class="btn btn-view mr-1"><i class="fas fa-eye me-1"></i>View</a>
+														<a href="javascript:void(0);" class="btn btn-delete"><i class="fas fa-trash me-1"></i>Delete</a>
+													</div>
+												</div>
+											</div> -->
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+							
+					</div>
+					
+					<!-- footer -->
+					<div class="row">
+						<div class="col-md-12">
+							<div class="py-3">© 2022 Goodup. Designd By ThemezHub.</div>
+						</div>
+					</div>
+		
+				</div>
+				
+			</div>
+			<!-- ======================= dashboard Detail End ======================== -->
+			
+			<a id="tops-button" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
+			
+
+		</div>
+		<!-- ============================================================== -->
+		<!-- End Wrapper -->
+		<!-- ============================================================== -->
+
+		<!-- ============================================================== -->
+		<!-- All Jquery -->
+		<!-- ============================================================== -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/popper.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/slick.js"></script>
+		<script src="assets/js/jquery.magnific-popup.min.js"></script>
+		<script src="assets/js/dropzone.js"></script>
+		<script src="assets/js/counterup.js"></script>
+		<script src="assets/js/lightbox.js"></script>
+		<script src="assets/js/moment.min.js"></script>
+		<script src="assets/js/daterangepicker.js"></script>
+		<script src="assets/js/lightbox.js"></script>		
+		<script src="assets/js/jQuery.style.switcher.js"></script>
+		<script src="assets/js/custom.js"></script>
+		<!-- ============================================================== -->
+		<!-- This page plugins -->
+		<!-- ============================================================== -->		
+
+	</body>
+
+<!-- Mirrored from themezhub.net/goodup-live/goodup/dashboard-my-listings.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Nov 2023 11:36:12 GMT -->
+</html>
