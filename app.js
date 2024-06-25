@@ -14,7 +14,6 @@ app.use(express.static('Public')); // POUR DONNER ACCES AUX RESSOURCES STAITQUES
 const multer = require('multer'); // MODULE POUR LE UPLOAD DE FICHIER
 
 
-
 const mysql = require('mysql'); /* MODULE POUR POUVOIR UTILISER MYSQL */
 const myConnection = require('express-myconnection'); /* MODULE POUR POUVOIR UTILISER MYSQL */
 
@@ -309,6 +308,44 @@ app.post('/rechercher',(req,res)=>{
 
 
 
+/* DESACTIVER UNE PUBLICATION */
+
+app.get('/desactivate', (req, res) => {
+    // Récupérer la valeur du paramètre 'id' depuis la requête
+    const id = req.query.id;
+
+    // Afficher la valeur de l'id dans la console (pour vérification)
+    console.log('ID à désactiver :', id);
+
+    // Vous pouvez maintenant utiliser cette valeur pour effectuer des opérations
+    // Par exemple, désactiver un enregistrement dans la base de données
+    req.getConnection((erreur,connection)=>{
+
+        if(erreur){
+            console.log(erreur);
+        }else{
+
+            connection.query('UPDATE bien SET statut = ?',['inactif'],(erreur, resultats)=>{
+                if(erreur){
+                 console.log(erreur); console.log(resultats);
+                }else{ 
+                    res.redirect('mes_biens');
+                }   
+     
+             })
+        }
+
+    })
+
+    // Exemple de réponse
+    //res.send(`ID à désactiver : ${id}`);
+
+    res.redirect('mes_biens');
+});
+
+
+/* FIN DESACTIVER UNE PUBLICATION */
+
 
 app.get('/signin',(req,res)=>{
     res.status(200).render('signup', { message : null});
@@ -474,7 +511,7 @@ app.get('/dashboard',(req,res)=>{
                         });                      
 
                     }else{
-                        
+                        const count = resultats[0].count;
 
                         connection.query('SELECT COUNT (*) AS countActif FROM bien WHERE id_demarcheur= ? AND statut= ?',[id,'actif'],(erreur,resultats)=>{
                             if(resultats[0].countActif === undefined){
