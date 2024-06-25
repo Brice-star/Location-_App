@@ -311,14 +311,14 @@ app.post('/rechercher',(req,res)=>{
 /* DESACTIVER UNE PUBLICATION */
 
 app.get('/desactivate', (req, res) => {
-    // Récupérer la valeur du paramètre 'id' depuis la requête
+
+    // Récupérer la valeur du paramètre 'id' depuis l'url'
     const id = req.query.id;
 
     // Afficher la valeur de l'id dans la console (pour vérification)
-    console.log('ID à désactiver :', id);
+    //console.log('ID à désactiver :', id);
 
-    // Vous pouvez maintenant utiliser cette valeur pour effectuer des opérations
-    // Par exemple, désactiver un enregistrement dans la base de données
+    // Requete pour changer le statut de la publication afin que cette derniere soit inactive
     req.getConnection((erreur,connection)=>{
 
         if(erreur){
@@ -327,7 +327,7 @@ app.get('/desactivate', (req, res) => {
 
             connection.query('UPDATE bien SET statut = ?',['inactif'],(erreur, resultats)=>{
                 if(erreur){
-                 console.log(erreur); console.log(resultats);
+                 console.log(erreur);
                 }else{ 
                     res.redirect('mes_biens');
                 }   
@@ -345,6 +345,45 @@ app.get('/desactivate', (req, res) => {
 
 
 /* FIN DESACTIVER UNE PUBLICATION */
+
+
+
+
+
+/* MODIFIER UNE PUBLICATION */
+
+
+app.get('/edit', (req, res) => {
+    // Récupérer la valeur du paramètre 'id' depuis l'url'
+    const id = req.query.id;
+
+    // Requete pour selectionner les données liées à cet id
+    req.getConnection((erreur,connection)=>{
+
+        if(erreur){
+            console.log(erreur);
+        }else{
+
+            connection.query('SELECT * from bien WHERE id = ?',[id],(erreur, resultats)=>{
+                if(erreur){
+                 console.log(erreur);
+                }else{ 
+                    res.render('edit',{resultats : resultats[0]});
+                }   
+     
+             })
+        }
+
+    })
+
+
+});
+
+/* FIN MODIFIER UNE PUBLICATION */
+
+
+
+
 
 
 app.get('/signin',(req,res)=>{
